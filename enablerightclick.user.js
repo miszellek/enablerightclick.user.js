@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         enable Right Click
 // @namespace    enableRightClick
-// @version      0.1
+// @version      0.2
 // @description  enable blocked Right Click (contextmenu)
 // @author       miszel
-// @match        http://*/*
+// @include       *://*
 // @grant        none
 // @license      MIT
 // ==/UserScript==
@@ -12,15 +12,15 @@
 (function() {
     'use strict';
 
-    document.oncontextmenu = null;
-    document.body.oncontextmenu = null;
-
     var enabled = false;
 
     if (window && typeof window != undefined && document.head != undefined) {
 
         if (enabled != true) {
-
+            
+            document.oncontextmenu = null;
+            document.body.oncontextmenu = null;
+            
             enabled = true;
 
             window.addEventListener('contextmenu', function contextmenu(event) {
